@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ name }}</title>
+    </head>
+    <a href="/logout">ログアウト</a>
+    <body>
+    {% if name == 'admin' %}
+    <h1>{{ name }}'s dog</h1>
+    {% elif name %}
+    <h1>友達の犬</h1>
+    {% else %}
+    <h1>わんこ</h1>
+    {% endif %}
+    <form action="/index" method="POST">
+        <input type="text" name="name" placeholder="Enter name">
+        <input type="submit" value="Submit">
+    </form>
+    <img src="/static/images/jin.jpg" alt="ジン">
+
+    <form action="/add" method="POST">
+        <input type="text" name="title" placeholder="title">
+        <input type="text" name="body" placeholder="body">
+        <input type="submit" value="Add">
+    </form>
+
+    <form action="/update" method="post" id="update">
+        <input type="text" name="title" placeholder="title">
+        <input type="text" name="body" placeholder="bosy">
+        <input type="submit" value="Update">
+    </form>
+    <form action="/delete" method="post" id="delete">
+        <input type="submit" value="Dlete Selected All Wished">
+    </form>
+    {%  for order in all_wish %}
+        <div>
+            <input type="radio" name="update" form="update" value="{{ order.id }}">
+            <input type="checkbox" name="delete" form="delete" value="{{ order.id }}">
+            {{ order.title }}:{{ order.body }}({{ order.date }})
+        </div>
+    {% endfor %}
+    </body>
+</html>

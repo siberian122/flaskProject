@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="wish" uuid="e7c564f6-af6a-42de-91cb-c32bcc8c972f">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\siber\OneDrive\デスクトップ\django\flaskProject\models\wish.db</jdbc-url>
+    </data-source>
+  </component>
+</project>
