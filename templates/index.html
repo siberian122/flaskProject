@@ -16,7 +16,15 @@
         <input type="text" name="name" placeholder="Enter name">
         <input type="submit" value="Submit">
     </form>
-    <img src="/static/images/jin.jpg" alt="ジン">
+    {% if food =='bone' %}
+    <img src="/static/images/bone.jpg" width="50%" height="50%">
+    {% elif food=='melon' %}
+    <img src="/static/images/melon.jpg" width="50%" height="50%">
+    {% elif food=='nothing' %}
+    <img src="/static/images/nothing.jpg" width="50%" height="50%">
+    {% else %}
+    <img src="/static/images/jin.jpg" alt="ジン" width="50%" height="50%">
+    {% endif %}
 
     <form action="/add" method="POST">
         <input type="text" name="title" placeholder="title">
@@ -39,5 +47,18 @@
             {{ order.title }}:{{ order.body }}({{ order.date }})
         </div>
     {% endfor %}
+
+    <form action="/esa" method="post" enctype="multipart/form-data">
+        {% for food in esa %}
+            <div>
+                <label for="r1">{{ food }}</label>
+                <input type="radio" id="{{ food }}" name="radio" value="{{ food }}">
+            </div>
+        {% endfor %}
+        <div>
+            <input type="submit" value="take food">
+        </div>
+    </form>
+    <a href="/index">トップに戻る</a>
     </body>
 </html>

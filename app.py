@@ -17,10 +17,17 @@ def index():
     if 'user_name' in session:
         name=request.args.get('name')
         all_wish=WishContent.query.all()
-        #esa=['bone','dog food','apple']
-        return render_template('index.html',name=name,all_wish=all_wish)
+        esa=['bone','melon','nothing']
+        return render_template('index.html',name=name,all_wish=all_wish,esa=esa)
     else:
         return redirect(url_for('top',status='logout'))
+
+
+@app.route('/esa',methods=['post'])
+def esa():
+    food=request.form.get('radio')
+    esa = ['bone', 'melon', 'nothing','go back']
+    return render_template('index.html',food=food,esa=esa)
 
 
 @app.route('/add',methods=['post'])
