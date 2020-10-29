@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+{% extends 'layout.html' %}
+
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+
+    {% block title %}Login{% endblock %}
 </head>
+{% block content %}
 <body>
     <h1>ログイン</h1>
     {% if status == "user_notfound" %}
@@ -18,5 +21,6 @@
         <input type="submit" value="Login">
     </form>
     <a href="/newcomer">新規登録はこちら</a>
+
 </body>
-</html>
+{% endblock %}

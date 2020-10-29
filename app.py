@@ -1,15 +1,17 @@
-from flask import Flask, render_template,request
-
-import key
-from models.models import WishContent, User
-from models.database import  db_session
 from datetime import datetime
-from flask import session,redirect,url_for
 from hashlib import sha256
 
+from flask import Flask, render_template, request
+from flask import session, redirect, url_for
+
+import key
+from models.database import db_session
+from models.models import WishContent, User
+
+from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 app.secret_key=key.SECRET_KEY
-
+bootstrap=Bootstrap(app)
 
 @app.route('/')
 @app.route('/index')
